@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'config/theme/app_theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NoticationsBloc.initializeFirebaseNotifications();
   runApp(
     MultiBlocProvider(
       providers: [

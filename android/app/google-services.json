@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "232269388011",
+    "project_id": "learning-d0b27",
+    "storage_bucket": "learning-d0b27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232269388011:android:bef1a6bb6b707f82dfc6ae",
+        "android_client_info": {
+          "package_name": "com.imdidierjunco.app_notifications"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232269388011-tdumes32ie5nii35bcbub5d9b3qgdtp3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU1hugppW0GHMZ-bzKVS6Ap4gWvyIxfo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232269388011-tdumes32ie5nii35bcbub5d9b3qgdtp3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "232269388011-ugt81hjbsinhle35dtog3mr5hdd1pb2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appNotifications"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
