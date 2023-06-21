@@ -6,3 +6,8 @@ abstract class NoticationsEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class NotificationStatusChanged extends NoticationsEvent {
+  final AuthorizationStatus status;
+  const NotificationStatusChanged(this.status);
+}

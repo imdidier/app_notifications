@@ -10,15 +10,33 @@ part 'notications_state.dart';
 class NoticationsBloc extends Bloc<NoticationsEvent, NoticationsState> {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   NoticationsBloc() : super(const NoticationsState()) {
-    // on<NoticationsEvent>((event, emit) {
-    // TODO: implement event handler
-    // });
+    on<NotificationStatusChanged>(_notificationStatusChanged);
+    _initialStatusCheck();
   }
 
   static Future<void> initializeFirebaseNotifications() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+  }
+
+  void _notificationStatusChanged(
+    NotificationStatusChanged event,
+    Emitter<NoticationsState> emit,
+  ) {
+    emit(state.copyWith(status: event.status));
+    _getFCMToken();
+  }
+
+  void _initialStatusCheck() async {
+    final settings = await messaging.getNotificationSettings();
+    add(NotificationStatusChanged(settings.authorizationStatus));
+  }
+
+  void _getFCMToken() async {
+    if (state.status != AuthorizationStatus.authorized) return;
+    final token = await messaging.getToken();
+    print(token);
   }
 
   void requestPermission() async {
@@ -28,9 +46,9 @@ class NoticationsBloc extends Bloc<NoticationsEvent, NoticationsState> {
       badge: true,
       carPlay: false,
       criticalAlert: true,
+      provisional: false,
       sound: true,
     );
-
-    settings.authorizationStatus;
+    add(NotificationStatusChanged(settings.authorizationStatus));
   }
 }
