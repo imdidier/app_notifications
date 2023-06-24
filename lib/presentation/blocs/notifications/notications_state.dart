@@ -1,8 +1,7 @@
 part of 'notications_bloc.dart';
 
 class NoticationsState extends Equatable {
-  //TODO: Crear modelo de notificaciones
-  final List<dynamic> notifications;
+  final List<PushMessage> notifications;
 
   final AuthorizationStatus status;
 
@@ -13,7 +12,7 @@ class NoticationsState extends Equatable {
 
   NoticationsState copyWith({
     AuthorizationStatus? status,
-    List<dynamic>? notifications,
+    List<PushMessage>? notifications,
   }) =>
       NoticationsState(
           status: status ?? this.status,
